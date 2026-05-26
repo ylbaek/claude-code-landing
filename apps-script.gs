@@ -32,6 +32,21 @@ function doPost(e) {
 
     const data = JSON.parse(e.postData.contents);
 
+    // 예상치 못한 출처의 요청 차단
+    const ALLOWED_COURSE = 'Claude Code 3시간 완성 클래스';
+    if (data.course !== ALLOWED_COURSE) {
+      return ContentService
+        .createTextOutput(JSON.stringify({ result: 'forbidden' }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+
+    // 필수 필드 검증
+    if (!data.name || !data.email || !data.phone) {
+      return ContentService
+        .createTextOutput(JSON.stringify({ result: 'invalid' }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+
     sheet.appendRow([
       data.submittedAt || new Date().toLocaleString('ko-KR', {timeZone: 'Asia/Seoul'}),
       data.name  || '',
