@@ -737,6 +737,191 @@
       line-height: 1.8;
     }
 
+    /* ─── REVIEWS ───────────────────────────────────────── */
+    .reviews-section {
+      background: #fff;
+      padding: 80px 48px;
+    }
+
+    .reviews-section .section-label h2 { color: #111; }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .review-card {
+      background: var(--light);
+      border-radius: 16px;
+      padding: 32px 28px 28px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      border: 1.5px solid #eee;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .review-card:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,.09);
+      transform: translateY(-3px);
+    }
+
+    .review-quote {
+      font-size: 48px;
+      line-height: 1;
+      color: var(--orange);
+      font-family: Georgia, serif;
+      margin-bottom: 12px;
+      opacity: .6;
+      user-select: none;
+    }
+
+    .review-stars {
+      display: flex;
+      gap: 2px;
+      margin-bottom: 14px;
+    }
+    .review-stars span { color: #FFC107; font-size: 15px; }
+
+    .review-text {
+      font-size: 14px;
+      color: #444;
+      line-height: 1.8;
+      flex: 1;
+    }
+
+    .review-footer {
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid #e4e4e4;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .review-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .review-author-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: #222;
+    }
+    .review-author-tag {
+      font-size: 12px;
+      color: #999;
+      margin-top: 2px;
+    }
+
+    /* ─── FAQ ────────────────────────────────────────────── */
+    .faq-section {
+      background: var(--light);
+      padding: 80px 48px;
+    }
+
+    .faq-section .section-label h2 { color: #111; }
+
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .faq-item {
+      background: #fff;
+      border-radius: 12px;
+      border: 1.5px solid #eee;
+      overflow: hidden;
+      transition: border-color .2s;
+    }
+    .faq-item.open { border-color: var(--orange); }
+
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      cursor: pointer;
+      text-align: left;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    .faq-q-text {
+      font-size: 15px;
+      font-weight: 700;
+      color: #111;
+      line-height: 1.5;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .faq-q-badge {
+      background: var(--orange);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 900;
+      padding: 3px 8px;
+      border-radius: 4px;
+      flex-shrink: 0;
+      font-family: 'Press Start 2P', monospace;
+    }
+
+    .faq-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      color: #888;
+      flex-shrink: 0;
+      transition: background .2s, transform .3s, color .2s;
+    }
+    .faq-item.open .faq-icon {
+      background: var(--orange);
+      color: #fff;
+      transform: rotate(45deg);
+    }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .35s ease, padding .35s ease;
+      padding: 0 24px;
+    }
+    .faq-item.open .faq-a {
+      max-height: 300px;
+      padding: 0 24px 22px;
+    }
+
+    .faq-a p {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.85;
+      border-left: 3px solid var(--orange);
+      padding-left: 16px;
+    }
+
     /* ─── RESPONSIVE ─────────────────────────────────────── */
     @media (max-width: 800px) {
       nav { padding: 14px 24px; }
@@ -746,7 +931,8 @@
       .pixel-char-left, .pixel-char-right { display: none; }
 
       .intro-section, .why-section, .recommend-section,
-      .roadmap-section, .instructor-section, .pricing-section { padding-left: 24px; padding-right: 24px; }
+      .roadmap-section, .instructor-section, .pricing-section,
+      .reviews-section, .faq-section { padding-left: 24px; padding-right: 24px; }
 
       .session-grid { grid-template-columns: 1fr; }
       .connector-dot::after { display: none; }
@@ -757,6 +943,8 @@
       .pricing-body { padding: 28px 24px 32px; }
       .pricing-top { padding: 22px 24px; }
       .price-amount { font-size: 36px; }
+
+      .reviews-grid { grid-template-columns: 1fr; }
 
       footer { padding: 36px 24px; }
     }
@@ -1210,6 +1398,152 @@
   </div>
 </section>
 
+<!-- ═══════════ REVIEWS ═══════════ -->
+<section class="reviews-section">
+  <div class="section-label">
+    <h2>수강생 후기</h2>
+    <p>실제로 강의를 들은 분들의 솔직한 이야기입니다.</p>
+  </div>
+
+  <div class="reviews-grid">
+
+    <div class="review-card">
+      <div class="review-quote">"</div>
+      <div class="review-stars">
+        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+      </div>
+      <p class="review-text">
+        반신반의하며 들었는데 3시간 만에 실제로 URL이 있는 페이지가 생기는 걸 보고 솔직히 놀랐습니다.
+        기존에는 개발팀에 부탁해야 했던 간단한 작업들을 이제 직접 해볼 수 있겠다는 자신감이 생겼어요.
+        Claude Code라는 도구 자체를 이 강의 전까지는 제대로 몰랐습니다.
+      </p>
+      <div class="review-footer">
+        <div class="review-avatar">💼</div>
+        <div>
+          <div class="review-author-name">30대 직장인</div>
+          <div class="review-author-tag">IT 서비스 기업 재직 중</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote">"</div>
+      <div class="review-stars">
+        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+      </div>
+      <p class="review-text">
+        마케팅 캠페인용 랜딩페이지를 매번 외주에 맡겼는데, 이 강의 이후로 간단한 건 직접 만들 수 있게 됐습니다.
+        완전히 다 혼자 하기엔 아직 부족하지만, 예전보다 훨씬 빠르게 초안을 잡을 수 있어서
+        외주 커뮤니케이션 비용이 많이 줄었어요.
+      </p>
+      <div class="review-footer">
+        <div class="review-avatar">📊</div>
+        <div>
+          <div class="review-author-name">마케팅 실무자</div>
+          <div class="review-author-tag">중소기업 마케팅팀 4년 차</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-quote">"</div>
+      <div class="review-stars">
+        <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+      </div>
+      <p class="review-text">
+        코딩이라면 손도 안 댔던 제가 강의 끝날 때 배포된 링크를 받아들고 뿌듯했습니다.
+        단계마다 결과가 눈에 보이니까 포기 없이 따라갈 수 있었어요.
+        아직 혼자서 처음부터 만드는 건 어렵지만, 다음 단계를 공부할 방향이 생긴 것만으로도 충분히 값했습니다.
+      </p>
+      <div class="review-footer">
+        <div class="review-avatar">🎓</div>
+        <div>
+          <div class="review-author-name">비전공자 수강생</div>
+          <div class="review-author-tag">문과 출신 스타트업 기획자</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════ FAQ ═══════════ -->
+<section class="faq-section">
+  <div class="section-label">
+    <h2>자주 묻는 질문</h2>
+    <p>수강 전 가장 많이 하시는 질문들을 모았습니다.</p>
+  </div>
+
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">
+          <span class="faq-q-badge">Q1</span>
+          코딩을 전혀 모르는데 들어도 괜찮을까요?
+        </span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>네, 완전 괜찮습니다. 이 강의의 핵심은 "코드를 직접 작성하지 않아도 된다"는 점입니다. Claude Code는 여러분이 원하는 것을 말(프롬프트)로 설명하면 AI가 코드를 만들어 줍니다. 코딩 지식보다 "무엇을 만들고 싶은지"를 표현하는 능력이 더 중요합니다. 실제로 수강생의 절반 이상이 비개발자분들입니다.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">
+          <span class="faq-q-badge">Q2</span>
+          강의 전에 미리 준비해야 할 게 있나요?
+        </span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>노트북(Windows 또는 Mac)과 안정적인 인터넷 연결이면 충분합니다. Claude Code 설치와 초기 설정은 강의 Session 1에서 강사와 함께 단계별로 진행하므로 미리 설치할 필요가 없습니다. Claude 계정(무료 플랜 가능)은 미리 만들어오시면 시간을 조금 아낄 수 있습니다.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">
+          <span class="faq-q-badge">Q3</span>
+          3시간 안에 실제로 결과물이 나오나요?
+        </span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>네, 강의가 끝날 때 외부에서 접근 가능한 URL이 있는 실제 페이지가 만들어집니다. 다만 페이지의 완성도는 수강 중 얼마나 집중하고 적극적으로 따라가느냐에 따라 달라질 수 있습니다. 강의 후 혼자서 조금 더 다듬는 시간을 갖는 것도 추천드립니다. 강의 중 만든 결과물은 그대로 실제 서비스로 활용할 수 있습니다.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">
+          <span class="faq-q-badge">Q4</span>
+          강의가 끝난 뒤에도 스스로 계속 만들 수 있을까요?
+        </span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>이 강의의 목표는 "한 번 만들고 끝"이 아니라 혼자서 계속 만들 수 있는 기반을 드리는 것입니다. 재사용 가능한 프롬프트 템플릿과 Skill 파일 설정 방법을 함께 드리기 때문에, 강의 이후에도 비슷한 방식으로 새로운 결과물을 만들 수 있습니다. 처음엔 단순한 페이지부터, 점차 더 복잡한 기능으로 확장해 나갈 수 있습니다.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">
+          <span class="faq-q-badge">Q5</span>
+          수강 후 환불이 가능한가요?
+        </span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a">
+        <p>수강 후 7일 이내에는 100% 전액 환불이 가능합니다. 단, 강의 영상을 50% 이상 시청하신 경우에는 환불이 어려울 수 있습니다. 환불 신청은 고객센터 이메일(support@fastcampus.co.kr)로 문의주시면 1영업일 이내에 처리해 드립니다. 결제 후 바로 수강이 가능하며, 신청과 동시에 모든 자료에 접근하실 수 있습니다.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <!-- ═══════════ PRICING ═══════════ -->
 <section class="pricing-section" id="pricing">
   <div class="section-label" style="margin-bottom:40px;">
@@ -1338,6 +1672,15 @@
 </div>
 
 <script>
+  // ── FAQ 아코디언 ──
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    // 다른 항목 닫기
+    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
   // ── 설정: Google Apps Script 웹앱 URL을 여기에 붙여넣으세요 ──
   const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz1wzkW3S_0fhxCYgu5Xc6N2FQq8tQCO_Hi357lXak6PF9IYuwjXR30DVeC6QrZPZUC/exec';
 
